@@ -1,0 +1,45 @@
+﻿@model List<MachinePortal.Models.MachineEntry>
+
+<div class="container mt-5">
+
+    <h2 class="mb-4">Machine Records</h2>
+
+    <a href="/Machine/Create" class="btn btn-success mb-3">+ Add New</a>
+
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>Technician</th>
+                <th>Bank</th>
+                <th>Branch</th>
+                <th>Machine Type</th>
+                <th>Serial Number</th>
+                <th>Software</th>
+                <th>Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.TechnicianName</td>
+                    <td>@item.BankName</td>
+                    <td>@item.Branch</td>
+                    <td>@item.MachineType</td>
+                    <td>@item.SerialNumber</td>
+                    <td>@item.SoftwareVersion</td>
+                    <td>@item.DateCreated.ToShortDateString()</td>
+
+                    <td>
+                        <a href="/Machine/Edit/@item.Id" class="btn btn-warning btn-sm">Edit</a>
+                        <a href="/Machine/Delete/@item.Id" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+
+</div>

@@ -1,0 +1,24 @@
+﻿@model MachinePortal.Models.MachineEntry
+
+<div class="container mt-5">
+
+    <h2 class="text-danger">Delete Machine</h2>
+
+    <h4>Are you sure you want to delete this?</h4>
+
+    <div class="card p-3 mt-3">
+        <p><strong>Technician:</strong> @Model.TechnicianName</p>
+        <p><strong>Bank:</strong> @Model.BankName</p>
+        <p><strong>Branch:</strong> @Model.Branch</p>
+        <p><strong>Machine:</strong> @Model.MachineType</p>
+    </div>
+
+    <form asp-action="Delete" method="post">
+        <input type="hidden" asp-for="Id" />
+
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a href="/Machine" class="btn btn-secondary">Cancel</a>
+   
+    </form>
+
+</div>
